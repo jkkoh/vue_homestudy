@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>welcome to home</p>
+    <p>{{homeValue}}</p>
+    <CountComponent v-on:countEvent="updateHomeValue" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CountComponent from "@/components/bClick.vue";
+
+
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeComponent",
+  components: { CountComponent },
+  data: function(){
+    return {
+      homeValue: 20,
+    };
+  },
+  methods: {
+    updateHomeValue(){
+      this.homeValue++;
+      console.log(this.homeValue);
+    },
+  },
+};
 </script>
